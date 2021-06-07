@@ -19,7 +19,7 @@ estimators:
     params:
       C: 1.5
       penalty: l1
-      solver: lbfgs
+      solver: saga
 model_dir: saved_models
 
 reports:
