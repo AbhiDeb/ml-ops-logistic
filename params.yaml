@@ -17,7 +17,7 @@ split_data:
 estimators:
   LogisticRegression:
     params:
-      C: 1.0
+      C: 1.5
       penalty: l2
       solver: lbfgs
 model_dir: saved_models
