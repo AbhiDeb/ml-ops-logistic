@@ -32,6 +32,7 @@ def train_and_evaluate(config_path):
 
     C = config["estimators"]["LogisticRegression"]["params"]["C"]
     penalty = config["estimators"]["LogisticRegression"]["params"]["penalty"]
+    solver = config["estimators"]["LogisticRegression"]["params"]["solver"]
 
     target = [config["base"]["target_col"]]
 
@@ -59,7 +60,8 @@ def train_and_evaluate(config_path):
     with mlflow.start_run(run_name=mlflow_config["run_name"]) as mlops_run:
         lr = LogisticRegression(
             C=C, 
-            penalty=penalty, 
+            penalty=penalty,
+            solver=solver,
             random_state=random_state)
         lr.fit(train_x, train_y.to_numpy().flatten())
 
@@ -69,6 +71,7 @@ def train_and_evaluate(config_path):
 
         mlflow.log_param("C", C)
         mlflow.log_param("penalty", penalty)
+        mlflow.log_param("solver", solver)
 
         mlflow.log_metric("accuracy", accuracy)
         mlflow.log_metric("precision", precision)
