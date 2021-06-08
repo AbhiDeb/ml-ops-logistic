@@ -7,5 +7,5 @@ class NotInRange(Exception):
 
 def test_generic():
     a = 4
-    b = 4
+    b = 5
     assert a==b
