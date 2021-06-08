@@ -18,7 +18,7 @@ estimators:
   LogisticRegression:
     params:
       C: 1.5
-      penalty: l2
+      penalty: l1
       solver: saga
 model_dir: saved_models
 
